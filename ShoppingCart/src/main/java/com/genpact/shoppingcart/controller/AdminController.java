@@ -21,7 +21,7 @@ public class AdminController {
 		@Autowired
 		private CategoryService categoryService;
 		
-		
+		// http://localhost:8080/shopping-cart/admin/admin-dashboard
 		@GetMapping("/admin-dashboard")
 		public String adminDashboard() {
 			return "adminDashboard";
@@ -46,7 +46,6 @@ public class AdminController {
 		// handler to add the category in DB
 		@PostMapping("/admin-dashboard/categories/add-category")
 		public String postCategoriesAdd(@ModelAttribute Category category) {
-			System.out.println(category);
 			this.categoryService.addCategory(category);
 			return "redirect:/shopping-cart/admin/admin-dashboard/all-categories";
 		}
