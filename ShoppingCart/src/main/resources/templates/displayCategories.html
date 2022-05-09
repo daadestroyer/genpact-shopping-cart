@@ -23,7 +23,7 @@
 		<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
 			<a class="navbar-brand"
 				th:href="@{/shopping-cart/admin/admin-dashboard/}"
-				style="color: #cca300; font-weight:bold;"> Gadgetzz | </a>
+				style="color: #cca300; font-weight: bold;"> Gadgetzz | </a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#collapsibleNavbar">
 				<span class="navbar-toggler-icon"></span>
@@ -69,10 +69,11 @@
 					<th scope="row" th:text="${iStat.index + 1}">1</th>
 					<td th:text="${category.categoryName}">1</td>
 
-					<td><a th:href="@{/shopping-cart/admin/admin-dashboard/categories/delete/{id}(id=${category.id})}"
+					<td><a
+						th:href="@{/shopping-cart/admin/admin-dashboard/categories/delete/{id}(id=${category.id})}"
 						class="btn btn-danger">Delete</a></td>
 					<td><a
-						th:href="@{/admin-dashboard/categories/update/{id}(id=${category.id})}"
+						th:href="@{/shopping-cart/admin/admin-dashboard/categories/update/{id}(id=${category.id})}"
 						class="btn btn-warning">Update</a></td>
 				</tr>
 			</tbody>

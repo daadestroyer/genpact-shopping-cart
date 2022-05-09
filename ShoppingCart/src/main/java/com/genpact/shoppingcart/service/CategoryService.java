@@ -7,6 +7,7 @@ import com.genpact.shoppingcart.model.Category;
 import com.genpact.shoppingcart.repository.CategoryRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 // Here all the services we are providing
 @Service
@@ -29,5 +30,10 @@ public class CategoryService {
 	public void deleteCategoryById(int categoryId) {
 		System.out.println("CAT ID IN SERVICE = "+categoryId);
 		this.categoryRepository.deleteById(categoryId);
+	}
+	
+	//service to get categories by id
+	public Optional<Category> getCategoryById(int categoryId){
+		return this.categoryRepository.findById(categoryId);
 	}
 }

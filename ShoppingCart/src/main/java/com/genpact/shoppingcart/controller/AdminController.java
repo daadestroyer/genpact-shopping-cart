@@ -1,5 +1,7 @@
 package com.genpact.shoppingcart.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -60,14 +62,28 @@ public class AdminController {
 		return "displayProduct";
 	}
 	
+	// handler to delete category by id
 	@GetMapping("/admin-dashboard/categories/delete/{categoryId}")
 	public String deleteCategories(@PathVariable int categoryId) {
-		System.out.println("CAT id ="+categoryId);
-		
 		this.categoryService.deleteCategoryById(categoryId);
-		
-		
 		return "redirect:/shopping-cart/admin/admin-dashboard/all-categories";
 	}
+	
+	// handler to update category by id
+	@GetMapping("/admin-dashboard/categories/update/{categoryId}")
+	public String updateCategories(@PathVariable int categoryId , Model model) {
+		Optional<Category> categoryById = this.categoryService.getCategoryById(categoryId);
+		if(categoryById.isPresent()) {
+			model.addAttribute("category",categoryById.get());
+			return "addCategories";
+		}
+		else {
+			return "404";
+		}
+		 
+	}
+	
+	
+	
 
 }
