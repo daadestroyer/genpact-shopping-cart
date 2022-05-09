@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link th:href="@{/css/style.css}" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 <link rel="stylesheet"
@@ -16,12 +16,18 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<style>
+	body{
+	background-image: url("https://i.pinimg.com/originals/ff/26/d5/ff26d5a8cb3416fcf8ac05224acb858c.png");
+	
+	}
+	</style>
 <title>Gadgetzz-Admin | Add Category</title>
 </head>
 <body>
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-			<a class="navbar-brand" th:href="@{/shopping-cart/admin/admin-dashboard/}" style="color: #cca300;">
+			<a class="navbar-brand" th:href="@{/shopping-cart/admin/admin-dashboard/}" style="color: #cca300; font-weight:bold;">
 				Gadgetzz | </a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#collapsibleNavbar">
@@ -49,7 +55,7 @@
 	<br>
 	<br>
 	<br>
-	<div class="container jumbotron">
+	<div class="container">
 
 		<div class="row">
 		
@@ -58,10 +64,10 @@
 				<form
 					th:action="@{/shopping-cart/admin/admin-dashboard/categories/add-category}"
 					class="form-group" method="POST">
-					<label>Category Name</label> <input type="text"
+					<label style="color:white;font-size:40px;">Category Name</label> <input type="text"
 						class="form-control" name="categoryName"
 						placeholder="Enter category name"> <br>
-					<button class="btn btn-outline-primary btn-block" type="submit" value="submit">Submit</button>
+					<button class="btn btn-danger btn-block" type="submit" value="submit">Submit</button>
 				</form>
 			</div>
 			<div class="col-md-3"></div>

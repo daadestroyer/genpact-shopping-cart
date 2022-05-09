@@ -24,4 +24,10 @@ public class CategoryService {
 	public List<Category> getAllCategory() {
 		return this.categoryRepository.findAll();
 	}
+
+	// service to delete category by id
+	public void deleteCategoryById(int categoryId) {
+		System.out.println("CAT ID IN SERVICE = "+categoryId);
+		this.categoryRepository.deleteById(categoryId);
+	}
 }

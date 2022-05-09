@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.genpact.shoppingcart.model.Category;
 import com.genpact.shoppingcart.service.CategoryService;
 
-@Controller()
+@Controller
 @RequestMapping("shopping-cart/admin/")
 public class AdminController {
 
@@ -57,6 +58,16 @@ public class AdminController {
 	public String getProductsPage(Model model) {
 		// model.addAttribute("categories",categoryService.getAllCategory());
 		return "displayProduct";
+	}
+	
+	@GetMapping("/admin-dashboard/categories/delete/{categoryId}")
+	public String deleteCategories(@PathVariable int categoryId) {
+		System.out.println("CAT id ="+categoryId);
+		
+		this.categoryService.deleteCategoryById(categoryId);
+		
+		
+		return "redirect:/shopping-cart/admin/admin-dashboard/all-categories";
 	}
 
 }

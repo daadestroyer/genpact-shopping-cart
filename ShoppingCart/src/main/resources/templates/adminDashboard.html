@@ -15,7 +15,7 @@
 <body>
     <div class="container-fluid">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" th:href="@{/shopping-cart/admin/admin-dashboard/}" style="color: #cca300;"> Gadgetzz | </a>
+            <a class="navbar-brand" th:href="@{/shopping-cart/admin/admin-dashboard/}" style="color: #cca300; font-weight:bold;"> Gadgetzz | </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,7 +52,7 @@
                             <h3>Categories</h3>
                         </div>
                         <p>Manage the categories section here.</p>
-                        <a th:href="@{/shopping-cart/admin/admin-dashboard/all-categories}"><button class="btn btn-success">Manage Category</button></a>
+                        <a th:href="@{/shopping-cart/admin/admin-dashboard/all-categories}"><button class="btn btn-danger">Manage Category</button></a>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                             <h3>Products</h3>
                         </div>
                         <p>Manage all the products here.</p>
-                        <a th:href="@{/shopping-cart/admin/admin-dashboard/products}"><button class="btn btn-success">Manage Products</button></a>
+                        <a th:href="@{/shopping-cart/admin/admin-dashboard/products}"><button class="btn btn-danger">Manage Products</button></a>
                     </div>
                 </div>
             </div>

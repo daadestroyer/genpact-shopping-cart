@@ -8,11 +8,11 @@
 
 .jumbotron{
     background-image: url("https://i.pinimg.com/originals/ff/26/d5/ff26d5a8cb3416fcf8ac05224acb858c.png");
-    color: rgb(255, 4, 100);
+    color: rgb(110, 56, 233);
 }
 
 .neonText {
-    color: #fff;
+    color: rgb(255, 99, 82);
     text-shadow:
       0 0 7px #fff,
       0 0 10px #fff,
