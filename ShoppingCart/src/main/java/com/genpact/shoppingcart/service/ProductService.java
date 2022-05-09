@@ -26,12 +26,12 @@ public class ProductService {
 	}
 	
 	// service to remove productsById
-	public void removeProductsById(long productId) {
+	public void removeProductsById(int productId) {
 		 this.productRepository.deleteById(productId);
 	}
 	
 	// service to get productsById
-	public Optional<Product> getProductById(long productId){
+	public Optional<Product> getProductById(int productId){
 		return this.productRepository.findById(productId); 
 	}
 	

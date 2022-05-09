@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.genpact.shoppingcart.model.Category;
 import com.genpact.shoppingcart.model.Product;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 	public List<Product> findAllByCategoryId(int id);
 }

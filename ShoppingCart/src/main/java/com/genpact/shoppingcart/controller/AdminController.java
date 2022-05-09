@@ -92,7 +92,6 @@ public class AdminController {
 	public String getProductsPage(Model model) {
 		model.addAttribute("products", productService.getAllProduct());
 		List<Product> allProduct = productService.getAllProduct();
-		System.out.println("ALL PRODUCTS = "+allProduct);
 		return "displayProduct";
 	}
 
@@ -135,6 +134,31 @@ public class AdminController {
 	    productService.addProducts(product);
 	    
 		return "redirect:/shopping-cart/admin/admin-dashboard/products";
+	}
+	
+	@GetMapping("/admin-dashboard/product/delete/{id}")
+	public String deleteProduct(@PathVariable int id) {
+		 
+		this.productService.removeProductsById(id);
+		return "redirect:/shopping-cart/admin/admin-dashboard/products";
+	}
+	
+	@GetMapping("/admin-dashboard/product/update/{id}")
+	public String updateProduct(@PathVariable int id , Model model) {
+		 Product product = this.productService.getProductById(id).get();
+		 ProductDTO productDTO = new ProductDTO();
+		 
+		 productDTO.setId(product.getId());
+		 productDTO.setName(product.getName());
+		 productDTO.setCategoryId(product.getCategory().getId());
+		 productDTO.setPrice(product.getPrice());
+		 productDTO.setWeight(product.getWeight());
+		 product.setDescription(product.getDescription());
+		 product.setImage(product.getImage());
+		 
+		 model.addAttribute("categories",categoryService.getAllCategory());
+		 model.addAttribute("productDTO",productDTO);
+		return "displayProduct";
 	}
 
 }
