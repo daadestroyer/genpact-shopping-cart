@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard | Add Category</title>
+</head>
+<body>
+	<h1>Add Category</h1>
+
+
+	 <form th:action="@{/shopping-cart/admin/admin-dashboard/categories/add-category}" method="POST" th:object="${category}">
+	 	<label>Category Name : </label><br>
+	 	
+	 	<input type="text" name="categoryName"/>
+	 	<br><br>
+	 	<input type="submit" value="Save"/>
+	 </form>
+</body>
+</html>
