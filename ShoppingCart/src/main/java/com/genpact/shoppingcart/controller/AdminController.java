@@ -1,7 +1,11 @@
 package com.genpact.shoppingcart.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,26 +13,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.web.multipart.MultipartFile;
 import com.genpact.shoppingcart.dto.ProductDTO;
 import com.genpact.shoppingcart.model.Category;
+import com.genpact.shoppingcart.model.Product;
 import com.genpact.shoppingcart.service.CategoryService;
 import com.genpact.shoppingcart.service.ProductService;
 
+ 
 @Controller
 @RequestMapping("shopping-cart/admin/")
 public class AdminController {
 
+	public static String uploadDir = System.getProperty("user.dir") +"/src/main/resources/static/productimages";
 	@Autowired
 	private CategoryService categoryService;
 
 	@Autowired
 	private ProductService productService;
-	
+
 	// http://localhost:8080/shopping-cart/admin/admin-dashboard
 	@GetMapping("/admin-dashboard")
 	public String adminDashboard() {
@@ -56,14 +61,14 @@ public class AdminController {
 	public String postCategoriesAdd(@ModelAttribute Category category) {
 		System.out.println(category);
 		this.categoryService.addCategory(category);
-		return "redirect:/shopping-cart/admin/admin-dashboard/all-categories";
+		return "redirect:/shopping-cart/admin/admin-dashboard/categories";
 	}
 
 	// handler to delete category by id
 	@GetMapping("/admin-dashboard/categories/delete/{categoryId}")
 	public String deleteCategories(@PathVariable int categoryId) {
 		this.categoryService.deleteCategoryById(categoryId);
-		return "redirect:/shopping-cart/admin/admin-dashboard/all-categories";
+		return "redirect:/shopping-cart/admin/admin-dashboard/categories";
 	}
 
 	// handler to update category by id
@@ -85,7 +90,9 @@ public class AdminController {
 	// http://localhost:8080/shopping-cart/admin/admin-dashboard/products
 	@GetMapping("/admin-dashboard/products")
 	public String getProductsPage(Model model) {
-		model.addAttribute("products",productService.getAllProduct());
+		model.addAttribute("products", productService.getAllProduct());
+		List<Product> allProduct = productService.getAllProduct();
+		System.out.println("ALL PRODUCTS = "+allProduct);
 		return "displayProduct";
 	}
 
@@ -93,9 +100,41 @@ public class AdminController {
 	// http://localhost:8080/shopping-cart/admin/admin-dashboard/products/add-product
 	@GetMapping("/admin-dashboard/products/add-product")
 	public String getProductsAdd(Model model) {
-		model.addAttribute("productDTOP",new ProductDTO());
-		model.addAttribute("categories",categoryService.getAllCategory());
-	 	return "addProduct";
+		model.addAttribute("productDTO", new ProductDTO());
+		model.addAttribute("categories", this.categoryService.getAllCategory());
+		
+		return "addProduct";
+	}
+
+	@PostMapping("/admin-dashboard/products/add-product")
+	public String postProductAdd(@ModelAttribute ProductDTO productDTO ,
+			@RequestParam("productImage") MultipartFile file,
+			@RequestParam("imgName")String imgName) throws IOException {
+		 
+		
+		Product product = new Product();
+		product.setId(productDTO.getId());
+		product.setName(productDTO.getName());
+	    product.setCategory(categoryService.getCategoryById(productDTO.getCategoryId()).get()); 
+	    product.setPrice(productDTO.getPrice());
+	    product.setWeight(productDTO.getWeight());
+	    product.setDescription(productDTO.getDescription());
+	    
+	    String imageUUID;
+	    if(!file.isEmpty()) {
+	    	// when file is not empty
+	    	imageUUID = file.getOriginalFilename();
+	    	Path fileNameAndPath = Paths.get(uploadDir,imageUUID);
+	    	Files.write(fileNameAndPath, file.getBytes());
+	    }
+	    else {
+	    	imageUUID = imgName;
+	    }
+	    
+	    product.setImage(imageUUID);
+	    productService.addProducts(product);
+	    
+		return "redirect:/shopping-cart/admin/admin-dashboard/products";
 	}
 
 }

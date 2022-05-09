@@ -17,17 +17,17 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "category_id")
 	private int id;
-	private String categoryName;
+	private String name;
 
 	public Category() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Category(int id, String categoryName) {
+	public Category(int id, String name) {
 		super();
 		this.id = id;
-		this.categoryName = categoryName;
+		this.name = name;
 	}
 
 	public int getId() {
@@ -39,16 +39,16 @@ public class Category {
 	}
 
 	public String getCategoryName() {
-		return categoryName;
+		return name;
 	}
 
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+	public void setCategoryName(String name) {
+		this.name = name;
 	}
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", categoryName=" + categoryName + "]";
+		return "Category [id=" + id + ", categoryName=" + name + "]";
 	}
 
 }

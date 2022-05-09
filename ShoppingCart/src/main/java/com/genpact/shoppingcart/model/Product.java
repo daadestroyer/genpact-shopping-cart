@@ -13,25 +13,24 @@ public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private int id;
 	private String name;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="category_id" , referencedColumnName = "category_id") 
 	private Category category;
-	
 	private double price;
 	private double weight;
 	private String description;
-	private String image;
+	public String imageName;
 	
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(Long id, String name, Category category, double price, double weight, String description,
-			String image) {
+	public Product(int id, String name, Category category, double price, double weight, String description,
+			String imageName) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -39,14 +38,14 @@ public class Product {
 		this.price = price;
 		this.weight = weight;
 		this.description = description;
-		this.image = image;
+		this.imageName = imageName;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -91,17 +90,17 @@ public class Product {
 	}
 
 	public String getImage() {
-		return image;
+		return imageName;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setImage(String imageName) {
+		this.imageName = imageName;
 	}
 
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", price=" + price + ", weight="
-				+ weight + ", description=" + description + ", image=" + image + "]";
+				+ weight + ", description=" + description + ", imageName=" + imageName + "]";
 	}
 	
 	
