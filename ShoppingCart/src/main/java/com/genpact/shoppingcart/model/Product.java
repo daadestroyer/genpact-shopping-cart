@@ -89,11 +89,11 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getImage() {
+	public String getImageName() {
 		return imageName;
 	}
 
-	public void setImage(String imageName) {
+	public void setImageName(String imageName) {
 		this.imageName = imageName;
 	}
 
@@ -102,7 +102,9 @@ public class Product {
 		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", price=" + price + ", weight="
 				+ weight + ", description=" + description + ", imageName=" + imageName + "]";
 	}
-	
+
+	 
+ 
 	
 	
 }

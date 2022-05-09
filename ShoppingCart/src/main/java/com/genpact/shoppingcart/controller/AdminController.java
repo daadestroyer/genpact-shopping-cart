@@ -130,20 +130,14 @@ public class AdminController {
 	    	imageUUID = imgName;
 	    }
 	    
-	    product.setImage(imageUUID);
+	    product.setImageName(imageUUID);
 	    productService.addProducts(product);
 	    
 		return "redirect:/shopping-cart/admin/admin-dashboard/products";
 	}
 	
-	@GetMapping("/admin-dashboard/product/delete/{id}")
-	public String deleteProduct(@PathVariable int id) {
-		 
-		this.productService.removeProductsById(id);
-		return "redirect:/shopping-cart/admin/admin-dashboard/products";
-	}
 	
-	@GetMapping("/admin-dashboard/product/update/{id}")
+	@GetMapping("/admin-dashboard/products/update/{id}")
 	public String updateProduct(@PathVariable int id , Model model) {
 		 Product product = this.productService.getProductById(id).get();
 		 ProductDTO productDTO = new ProductDTO();
@@ -153,12 +147,18 @@ public class AdminController {
 		 productDTO.setCategoryId(product.getCategory().getId());
 		 productDTO.setPrice(product.getPrice());
 		 productDTO.setWeight(product.getWeight());
-		 product.setDescription(product.getDescription());
-		 product.setImage(product.getImage());
-		 
+		 productDTO.setDescription(product.getDescription());
+		 productDTO.setImageName(product.getImageName());
 		 model.addAttribute("categories",categoryService.getAllCategory());
 		 model.addAttribute("productDTO",productDTO);
-		return "displayProduct";
+		return "addProduct";
 	}
+	
+	@GetMapping("/admin-dashboard/products/delete/{id}")
+	public String deleteProduct(@PathVariable int id) {
+		this.productService.removeProductsById(id);
+		return "redirect:/shopping-cart/admin/admin-dashboard/products";
+	}
+	
 
 }
