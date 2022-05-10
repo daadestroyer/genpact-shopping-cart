@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		// TODO Auto-generated method stub
 		http
 		.authorizeRequests()
-		.antMatchers("/","/shop/**","/forgotpassword","/register","/h2-console/*").permitAll()
+		.antMatchers("/","/shop","/forgotpassword","/register","/h2-console/*").permitAll()
 		.antMatchers("/shopping-cart/admin/").hasRole("ADMIN")
 		.anyRequest()
 		.authenticated()
