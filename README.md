@@ -54,4 +54,4 @@
     --> Inventory Management <br>
     --> Critical Inventory notifications <br>
     --> Carts threshold value notification <br>
-    --> User order history management <br>
+    --> User order history management. <br>
