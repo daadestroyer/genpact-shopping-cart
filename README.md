@@ -1,5 +1,5 @@
 ## Spring Boot Secure Shopping Cart Application - SSCA-2022
-This is a college major project for our 4th Semester in RV College of Engineering - Department of Masters of Computer Application, Which has been done in a team of four member . We all together work in a same company <a href="https://www.genpact.com">@Genpact</a>
+This is a college major project for our 4th Semester in <a href="https://www.rvce.edu.in">RV College of Engineering</a> - Department of Masters of Computer Application, Which has been done in a team of four member . We all together work in a same company <a href="https://www.genpact.com">@Genpact</a>
 
  1) Shubham Nigam <a href="https://www.linkedin.com/in/daadestroyer/">| LinkedIn</a>
  2) Ansh Gupta  <a href="https://www.linkedin.com/in/iamanshgupta/">| LinkedIn</a>
