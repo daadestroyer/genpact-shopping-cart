@@ -43,10 +43,10 @@
 
 
 #### 1) Design and Development of Inventory Management using Spring Boot by - Shubham Nigam <br>
-#### Category Management <br>
+##### Category Management <br>
 <img src="https://user-images.githubusercontent.com/48306820/170815238-8a0b8e35-6dfb-4f39-95ba-50468454b611.png">
-<img src="![image](https://user-images.githubusercontent.com/48306820/170815259-545d90fa-3b18-4a68-ab92-ee0f091ec49c.png)">
-<img src="![image](https://user-images.githubusercontent.com/48306820/170815267-d1457c8f-e8ce-4fc8-a1ca-b923f264d4bc.png)">
+<img src="https://user-images.githubusercontent.com/48306820/170815259-545d90fa-3b18-4a68-ab92-ee0f091ec49c.png">
+<img src="https://user-images.githubusercontent.com/48306820/170815267-d1457c8f-e8ce-4fc8-a1ca-b923f264d4bc.png">
 
 
 
