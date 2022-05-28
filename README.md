@@ -1,9 +1,10 @@
 ## Spring Boot Secure Shopping Cart Application - SSCA-2022
-#### This is a college major project which has been done in a team of four member
- 1) Shubham Nigam 
- 2) Ansh Gupta
- 3) Pulkit Nagar
- 4) Shrey Shakshi
+#### This is a college major project for our 4th Semester in RV College of Engineering - Department of Masters of Computer Application, Which has been done in a team of four member . We all together work in a same company @Genpact
+
+ 1) Shubham Nigam <a href="https://www.linkedin.com/in/daadestroyer/"></a>
+ 2) Ansh Gupta  <a href="https://www.linkedin.com/in/iamanshgupta/"></a>
+ 3) Pulkit Nagar <a href="https://www.linkedin.com/in/pulkit-nagar-94b605148/"></a> 
+ 4) Shrey Shakshi <a href="https://www.linkedin.com/in/shreya-shakshi-58b97414b/"></a>
 
 #### This project contains 4 modules which has been divided on four of us
 1) Design and Development of Inventory Management using Spring Boot by - Shubham Nigam <br>
