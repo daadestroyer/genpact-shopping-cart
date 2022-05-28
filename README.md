@@ -54,9 +54,8 @@
 <img src="https://user-images.githubusercontent.com/48306820/170815585-e94885a6-85b8-478d-a396-64659088d496.png">
 <img src="https://user-images.githubusercontent.com/48306820/170815604-4231bd07-48ff-4147-a8bf-851941359496.png">
 
+#### User / User Order History Management <br>
+<img src="https://user-images.githubusercontent.com/48306820/170815716-33a834e8-03d8-4ff9-8fec-2916ed31f61a.png">
  
-#### Products Management <br>
-#### Inventory Management <br>
 #### Critical Inventory notifications <br>
 #### Carts threshold value notification <br>
-#### User order history management <br>
