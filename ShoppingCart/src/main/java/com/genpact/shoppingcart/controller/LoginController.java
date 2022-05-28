@@ -33,6 +33,7 @@ public class LoginController {
 	
 	@GetMapping("/login")
 	public String login() {
+		// clearing the cart
 		GlobalData.cart.clear();
 		return "login";
 	}

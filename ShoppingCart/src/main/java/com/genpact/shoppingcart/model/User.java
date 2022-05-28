@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 @Table(name="users")
@@ -83,7 +85,7 @@ public class User {
 		this.password = password;
 	}
 
-	public java.util.List<Role> getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
 
@@ -94,7 +96,8 @@ public class User {
 
 	private String password;
 	
-	@ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JsonManagedReference
 	@JoinTable(
 			name="user_role",
 			joinColumns= {@JoinColumn(name="USER_ID",referencedColumnName="ID")},

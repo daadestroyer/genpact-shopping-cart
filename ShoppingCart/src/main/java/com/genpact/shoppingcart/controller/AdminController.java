@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.genpact.shoppingcart.dto.ProductDTO;
 import com.genpact.shoppingcart.model.Category;
 import com.genpact.shoppingcart.model.Product;
+import com.genpact.shoppingcart.model.User;
 import com.genpact.shoppingcart.service.CategoryService;
 import com.genpact.shoppingcart.service.ProductService;
+import com.genpact.shoppingcart.service.UserService;
 
  
 @Controller
@@ -33,6 +36,9 @@ public class AdminController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private UserService userService;
 
 	// http://localhost:8080/shopping-cart/admin/admin-dashboard
 	@GetMapping("/admin-dashboard")
@@ -126,7 +132,7 @@ public class AdminController {
 	    product.setPrice(productDTO.getPrice());
 	    product.setWeight(productDTO.getWeight());
 	    product.setDescription(productDTO.getDescription());
-	    
+	    System.out.println("IMG NAME = 	"+imgName);
 	    String imageUUID;
 	    if(!file.isEmpty()) {
 	    	// when file is not empty
@@ -167,6 +173,14 @@ public class AdminController {
 		this.productService.removeProductsById(id);
 		return "redirect:/shopping-cart/admin/admin-dashboard/products";
 	}
+	
+	@GetMapping("/admin-dashboard/view-all-authorized-users")
+	public String getAllAuthorizedUser(Model model) {
+		List<User> allAuthorizedUser = userService.getAllAuthorizedUser();
+		System.out.println(allAuthorizedUser);
+		model.addAttribute("users", userService.getAllAuthorizedUser());
+		return "displayUsers";
+	}	
 	
 
 }

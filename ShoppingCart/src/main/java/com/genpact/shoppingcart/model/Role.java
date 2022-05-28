@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "roles")
 public class Role {
@@ -48,6 +50,7 @@ public class Role {
 	}
 
 	@ManyToMany(mappedBy = "roles")
-	private java.util.List<User> users;
+	@JsonBackReference
+	private List<User> users;
 
 }
