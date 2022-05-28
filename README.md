@@ -6,7 +6,7 @@
  4) Shrey Shakshi
 
 #### This project contains 4 modules which has been divided on four of us
-1) Design and Development of Inventory Management using Spring Boot by - Shubham Nigam
+1) Design and Development of Inventory Management using Spring Boot by - Shubham Nigam <br>
     --> Category Management <br>
     --> Products Management <br>
     --> Inventory Management <br>
@@ -14,7 +14,7 @@
     --> Carts threshold value notification <br>
     --> User order history management <br>
  
-2) Design and Implementation of Cart System using Spring Boot - Pulkit Nagar
+2) Design and Implementation of Cart System using Spring Boot - Pulkit Nagar <br>
     --> Cart Main logic <br>
     --> Offer / Coupons code module <br>
     --> User Notification <br>
@@ -22,7 +22,7 @@
     --> Order Tracking <br>
     --> GlobalData class <br>
 
-3) Database Management using Spring Data JPA in a Shopping Cart Application - Ansh Gupta
+3) Database Management using Spring Data JPA in a Shopping Cart Application - Ansh Gupta<br>
     --> Project Security Configuration <br>
     --> OAuth2.0 API Configuration (OAuth Client ID and Client Secret Key Generation) <br>
     --> H2 In-Memory Database Configuration <br>
@@ -33,7 +33,7 @@
     --> PWA Development <br>
     --> Providing Thymeleaf Server-side Conditional Rendering in frontend side <br>
 
-4) Secure Shopping Cart Application using Spring Boot Web Services - Shrey Shaksi
+4) Secure Shopping Cart Application using Spring Boot Web Services - Shrey Shaksi <br>
     --> Google OAuth2.0 implementation <br>
     --> Session Management <br>
     --> URL Blocking <br>
